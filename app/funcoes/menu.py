@@ -5,5 +5,5 @@ def menu():
         print('3. registrar saida')
         print('4. consultar estoque')
         print('5. alertar estoque baixo')
-        print('7. mostrar estoque completo')
-        print('8. sair ')
+        print('6. mostrar estoque completo')
+        print('7. sair ')
