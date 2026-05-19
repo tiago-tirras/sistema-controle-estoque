@@ -10,7 +10,7 @@ def cadastrar_produto():
         preco = float(input('Digite o preço do produto: '))
         quantidade_inicial = float(input('Digite a quantidade inicial do produto: '))
     except ValueError:
-        print('Apenas números sãoválidos!')
+        print('Apenas números são válidos!')
 
     produto ={
         'id': dados.proximo_id,
