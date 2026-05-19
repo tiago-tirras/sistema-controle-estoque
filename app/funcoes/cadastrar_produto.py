@@ -1,4 +1,4 @@
-import app.dados as dados 
+import app.dados as dados  # importa o arquivo app.dados com dados 
 def cadastrar_produto():
 
     try:
@@ -13,14 +13,14 @@ def cadastrar_produto():
         print('Apenas números são válidos!')
 
     produto ={
-        'id': dados.proximo_id,
+        'id': dados.proximo_id, 
         'nome':nome,
         'categoria':categoria,
         'preco':preco,
         'quantidade':quantidade_inicial
         }
     
-    dados.estoque.append(produto)
-    dados.proximo_id += 1
-    print(f"Produto '{produto['nome']}' adicionado ao estoque!")
+    dados.estoque.append(produto)   # Adiciona o dicionário na lista 
+    dados.proximo_id += 1           # Atualiza a variavel proximo_id, adicionado +1
+    print(f"Produto '{produto['nome']}' adicionado ao estoque!") # Mensagem que confirma que cadastrou o produto 
     
