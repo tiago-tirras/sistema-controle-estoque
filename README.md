@@ -37,8 +37,20 @@
 ---
 
 ## Instruções de execução do código
-Pass
----
+Passo a Passo da instalação do python:
+1 - Ter o Python instalado no seu dispositivo, caso não tenha instale aqui  link: [https://www.python.org/downloads/] 
+2 - No processo de dowload do python não esqueça de marca a caixinha "Add Python to PATH", essa função é essencial para que seu sistema operacional reconheça os comandos do Python
+3 - Boa, Python instalado 
+
+Como executar o código: 
+1 - Clique no botão verde escrito "Code" (está no topo desta página) e depois clique em "Download ZIP".
+2 - Depois que baixar, extraia essa pasta em qualquer lugar do seu computador, como na sua Área de Trabalho
+3 - Abra a pasta que você acabou de extrair. Dentro dela, você verá vários arquivos que fazem o sistema funcionar juntos.
+4 - Dentro dessa pasta, clique na barra de endereços (a barra no topo do Windows onde fica escrito o caminho das pastas, ex: C:\Usuários\Nome\Área de Trabalho), digite cmd e aperte Enter. Uma tela preta vai se abrir esse e o terminal de comando do Windows.
+4.1 - Outra opção também e digitar "cmd" na caixa de pesquisa do Windows a que fica na tela inicial bem na barrinha dos aplicativos.
+5 - Na tela preta que se abriu, digite o comando abaixo e aperte Enter:
+                          python main.py
+ 
 
 ## Nome do aluno
 
