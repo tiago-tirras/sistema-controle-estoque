@@ -1,7 +1,7 @@
 import app.dados as dados 
 
 def consultar_estoque():
-    for produto in estoque:
+    for produto in dados.estoque:
         print(f"{produto['id']} - {produto['nome']}")
     
     try:

@@ -8,7 +8,7 @@ def cadastrar_produto():
         print('Apenas letras alfabéticas são válidas!')
     try:
         preco = float(input('Digite o preço do produto: '))
-        quantidade_inicial = float(input('Digite a quantidade inicial do produto: '))
+        quantidade_inicial = int(input('Digite a quantidade inicial do produto: '))
     except ValueError:
         print('Apenas números são válidos!')
 
