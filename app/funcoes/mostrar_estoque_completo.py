@@ -1,8 +1,22 @@
-import app.dados as dados
+from app.banco import cursor,conexao 
 
 def mostrar_estoque_completo():
-    if not dados.estoque:
-        print('Estoque vazio!')
+    sql = '''select id,nome,categoria ,preco , quantidade from produtos'''
+
+    cursor.execute(sql)
+    produtos = cursor.fetchall()
+
+    if not produtos :
+        print('estoque vazio!')
         return
-    for produto in dados.estoque:
-        print(f"{produto['id']} - {produto['nome']} | Quantidade: {produto['quantidade']} | preço:R$ {produto['preco']}")
+
+    print('\n===ESTOQUE COMPLETO===\n')
+
+    for produto in produtos:
+        print(
+            f'ID: {produto[0]} | '
+            f'Produto: {produto[1]} | '
+            f'Categoria: {produto[2]} | '
+            f'Preço: {produto[3]:.2f} | '
+            f'Quantidade: {produto[4]} '
+        )

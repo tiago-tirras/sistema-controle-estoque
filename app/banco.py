@@ -1,0 +1,10 @@
+import mysql.connector 
+
+conexao = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = '',
+    database = 'estoque'
+)
+
+cursor = conexao.cursor()

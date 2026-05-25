@@ -1,16 +1,29 @@
-import app.dados as dados 
+from app.banco import cursor,conexao 
 
 def consultar_estoque():
-    for produto in dados.estoque:
-        print(f"{produto['id']} - {produto['nome']}")
-    
-    try:
-        produto_id = int(input('Digite o ID do produto: '))
-    except ValueError:
-        print('Apenas números inteiros são válidos!')
-    
-    for produto in dados.estoque:
-        if produto['id'] == produto_id:
-            print(f"{produto['nome']} | Quantidade disponivel: {produto['quantidade']}")
-            return
-    print('Produto não encontrado no estoque!')
+
+
+    sql = 'select id,nome,categoria,preco , quantiadade from produto'
+
+    cursor.execute(sql)
+
+    produtos = cursor.fetchall()
+
+    if not produtos :
+        print('estoque vazio!')
+        return
+
+    print('\n===ESTOQUE ATUAL===')
+
+    for produto in produtos:
+
+        preco_total = produto[3] * produto[4]
+
+        print(
+            f'\nID: {produto[0]}'
+            f'\nProduto: {produto[1]}'
+            f'\nCategoria: {produto[2]}'
+            f'\nPreço: {produto[3]}'
+            f'\nQuantidade: {produto[4]}'
+            f'\nPreço total: R$ {preco_total:.2f}'
+            )

@@ -1,21 +1,76 @@
-import app.dados as dados
+from app.banco import conexao , cursor 
+def registrar_saida ():
 
-def registrar_saida():
-    for produto in dados.estoque:
-        print(f"{produto['id']} - {produto['nome']} | Quantidade: {produto['quantidade']}")
+    sql = 'select id, nome,quantidade from produtos'
+
+    cursor.execute(sql)
+
+    produtos = cursor.fetchall
+
+    if not produtos:
+        print('nenhum produto cadastrado!')
+        return
+
+    print('\n===PRODUTOS CADASTRADOS===')
+
+    for produto in produtos:
+        print(
+            f"ID: {produto[0]} | "
+            f"Nome: {produto[1]} | "
+            f'Quantidade: {produto[2]}'
+            )
+
+    try:    
+        produto_id = int(input('digite o ID do produto'))
+        quantidade_saida = int(input('digite a quantidade que será retirada: '))
     
-    try:
-        produto_id = int(input('Digite o ID do produto: '))
-        nova_quantidade = int(input('Digite a quantidade que será adicionada ao produto: '))
     except ValueError:
-        print('Apenas números inteiros são válidos!')
+        print('digite apenas numeros')
+        return
+    
+    sql = '''select nome ,quantidade 
+    from produtos 
+    where id = %s'''
 
-    for produto in dados.estoque:
-        if produto['id'] == produto_id:
-            if produto['quantidade'] >= nova_quantidade:
-                produto['quantidade'] -= nova_quantidade
-                print(f"Saida registrada com sucesso! Quantidade atualizada do produto: {produto['quantidade']}")
-            else:
-                print('Quantidade insuficiente no estoque!')
-                return
-    print('Produto não encontrado no estoque!')            
+    cursor.execute(sql,(produto_id,))
+
+    produto = cursor.fetchone()
+
+    if produto is None:
+        print('Produto nao encontrado')
+        return
+    
+    nome_produto = produto[0]
+    quantidade_atual = produto[1]
+
+    if quantidade_saida > quantidade_atual:
+        print('Quantidade insufisciente no estoque')
+        return
+
+    sql = '''
+    update produtos 
+    set quantidade = quantidade - %s
+    where id = %s  '''
+
+    valores = (
+        quantidade_saida,
+        produto_id
+    )
+
+    cursor.execute(sql,valores)
+
+    conexao.commit()
+    
+    sql = '''select quantidade from produtos 
+    where id = %s'''
+
+    cursor.execute(sql,(produto_id,))
+
+    nova_quantidade = cursor.fetchone()[0]
+
+    print(
+        f'\nSaida registrada com sucesso!\n'
+        f'\nProduto: {nome_produto}'
+        f'Quantidade Atual: {nova_quantidade}'
+    )
+  

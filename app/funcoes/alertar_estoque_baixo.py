@@ -1,16 +1,29 @@
-import app.dados as dados
+from app.banco import cursor
 
 def alertar_estoque_baixo():
-    estoque_baixo = False
     try:
-        limite = int(input('Digite a quantidade limite para alertar estoque baixo '))
+        limite = int(input('digite quantidade limite para alertar estoque baixo: '))
     except ValueError:
-        print('Apenas números inteiros são válidos!')
-    
-    for produto in dados.estoque:
-        if produto['quantidade'] <= limite:
-            print(f"O produto '{produto['nome']}' está com o estoque baixo! | Quantidade disponivel:{produto['quantidade']}")
-            estoque_baixo = True 
-    if not estoque_baixo:
-        print('Não há produtos com o estoque baixo!')
+        print('apenas números inteiros são válidos!')
+        return
+
+    sql = '''select id, nome , quantidade 
+    from produtos
+    where quantidade < %s'''
+
+    cursor.execute(sql,(limite,))
+    produtos = cursor.fetchall()
+
+    if not produtos:
+        print('nenhum produto cadastrado!')
+        return
+
+    print('\n===ALERTAR ESTOQUE BAIXO===')
+
+    for produto in produtos :
+        print(
+           f'ID: {produto[0]} | ' 
+           f'Produto: {produto[1]} | '
+           f'Quantidade: {produto[2]}'
+        )
         
