@@ -1,5 +1,5 @@
 from app.banco import conexao , cursor 
-def registrar_saida ():
+def registrar_entrada ():
 
     sql = 'select id, nome,quantidade from produtos'
 
