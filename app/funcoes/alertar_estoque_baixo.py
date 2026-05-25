@@ -1,14 +1,14 @@
-import app.dados as dados
+import app.dados as dados   # Da pasta "app" importa "dados" como "dados"
 
 def alertar_estoque_baixo():
-    estoque_baixo = False
+    estoque_baixo = False           
     try:
         limite = int(input('Digite a quantidade limite para alertar estoque baixo '))
     except ValueError:
         print('Apenas números inteiros são válidos!')
     
     for produto in dados.estoque:
-        if produto['quantidade'] <= limite:
+        if produto['quantidade'] <= limite:      
             print(f"O produto '{produto['nome']}' está com o estoque baixo! | Quantidade disponivel:{produto['quantidade']}")
             estoque_baixo = True 
     if not estoque_baixo:
