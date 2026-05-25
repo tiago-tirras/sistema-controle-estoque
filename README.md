@@ -12,7 +12,7 @@
    
 ---
 
-# Funcionalidades implementadas
+## Funcionalidades implementadas
 
  1 -  def
  
@@ -67,12 +67,18 @@ Passo a Passo da instalação do python:
 
 4 - Dentro dessa pasta, clique na barra de endereços (a barra no topo do Windows onde fica escrito o caminho das pastas, ex: C:\Usuários\Nome\Área de Trabalho), digite cmd e aperte Enter. Uma tela preta vai se abrir esse e o terminal de comando do Windows.
 
-4.1 - Outra opção também e digitar "cmd" na caixa de pesquisa do Windows a que fica na tela inicial bem na barrinha dos aplicativos.
+4.1 - No windowns 11,  o caminho de arqueivo mudou um pouco, mas e naquela mesma abarra de camainho, só que agora ela não tem mais, (C:\Usuários\Nome\Área de Trabalho), mas ainda continua sendo o caminho de arquivos, agora ele está assim (C:> Usuários > Nome > Área de Trabalho), mas o processo não muda so digitar "cmd" e o programa abrira o terminal  
 
-5 - Na tela preta que se abriu, digite o comando abaixo e aperte Enter:
-                          python main.py
+5 - Na tela preta que se abriu (Terminal), digite o comando abaixo e aperte Enter:
+                          ```bash
+                          pip install -r requirements.txt
+                          
+6- Após isso digite esse outro comando no terminal:
+                         python -m main.py
  
-6 - Aparecera um Menu com as funções do gerenciador de estoque e uma area para digitar os Códigos
+7 - Aparecera um menu com as funções do gerenciador de estoque e uma área para digitar os códigos
+
+8 - Pronto o programa está funcionando 
 
 
 ## Nome do aluno

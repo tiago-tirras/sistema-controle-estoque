@@ -1,6 +1,8 @@
+
 from app.banco import cursor
 
 def alertar_estoque_baixo():
+
     try:
         limite = int(input('digite quantidade limite para alertar estoque baixo: '))
     except ValueError:
