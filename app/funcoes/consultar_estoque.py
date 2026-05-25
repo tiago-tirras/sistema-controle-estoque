@@ -3,7 +3,7 @@ from app.banco import cursor,conexao
 def consultar_estoque():
 
 
-    sql = 'select id,nome,categoria,preco , quantiadade from produto'
+    sql = 'select id,nome,categoria,preco , quantidade from produtos'
 
     cursor.execute(sql)
 

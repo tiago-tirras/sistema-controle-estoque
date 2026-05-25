@@ -5,7 +5,7 @@ def registrar_entrada ():
 
     cursor.execute(sql)
 
-    produtos = cursor.fetchall
+    produtos = cursor.fetchall()
 
     if not produtos:
         print('nenhum produto cadastrado!')
@@ -21,7 +21,7 @@ def registrar_entrada ():
             )
 
     try:    
-        produto_id = int(input('digite o ID do produto'))
+        produto_id = int(input('digite o ID do produto: '))
         quantidade_entrada = int(input('digite a quantidade que será adicionada: '))
     
     except ValueError:
@@ -50,7 +50,7 @@ def registrar_entrada ():
     where id = %s  '''
 
     valores = (
-        quantidade_saida,
+        quantidade_entrada,
         produto_id
     )
 
@@ -68,6 +68,6 @@ def registrar_entrada ():
     print(
         f'\nSaida registrada com sucesso!\n'
         f'\nProduto: {nome_produto}'
-        f'Quantidade Atual: {nova_quantidade}'
+        f'\nQuantidade Atual: {nova_quantidade}'
     )
   

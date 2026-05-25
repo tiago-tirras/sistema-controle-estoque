@@ -11,13 +11,13 @@ def alertar_estoque_baixo():
 
     sql = '''select id, nome , quantidade 
     from produtos
-    where quantidade < %s'''
+    where quantidade <= %s'''
 
     cursor.execute(sql,(limite,))
     produtos = cursor.fetchall()
 
     if not produtos:
-        print('nenhum produto cadastrado!')
+        print('nenhum produto com estoque baixo!')
         return
 
     print('\n===ALERTAR ESTOQUE BAIXO===')
