@@ -49,31 +49,85 @@
 
 ## Instruções de execução do código
 
-Passo a Passo da instalação do python:
-
-1 - Ter o Python instalado no seu dispositivo, caso não tenha instale aqui  link: [https://www.python.org/downloads/] 
-
-2 - No processo de dowload do python não esqueça de marca a caixinha "Add Python to PATH", essa função é essencial para que seu sistema operacional reconheça os comandos do Python
-
-3 - Boa, Python instalado 
-
-**Como executar o código:** 
-
-1 - Clique no botão verde escrito "Code" (está no topo desta página) e depois clique em "Download ZIP".
-
-2 - Depois que baixar, extraia essa pasta em qualquer lugar do seu computador, como na sua Área de Trabalho.
-
-3 - Abra a pasta que você acabou de extrair. Dentro dela, você verá vários arquivos que fazem o sistema funcionar juntos.
-
-4 - Dentro dessa pasta, clique na barra de endereços (a barra no topo do Windows onde fica escrito o caminho das pastas, ex: C:\Usuários\Nome\Área de Trabalho), digite cmd e aperte Enter. Uma tela preta vai se abrir esse e o terminal de comando do Windows.
-
-4.1 - No windowns 11,  o caminho de arqueivo mudou um pouco, mas e naquela mesma abarra de camainho, só que agora ela não tem mais, (C:\Usuários\Nome\Área de Trabalho), mas ainda continua sendo o caminho de arquivos, agora ele está assim (C:> Usuários > Nome > Área de Trabalho), mas o processo não muda so digitar "cmd" e o programa abrira o terminal  
+Como o sistema usa **MySQL**, os dados ficam salvos em um servidor. A configuração abaixo é feita uma única vez. Depois disso, o uso no dia a dia é bem rápido.
 
 
+## 1. O que você precisa instalar
 
-8 - Pronto o programa está funcionando 
+Baixe e instale estes três itens gratuitos no seu computador:
 
+1. **Python** (O motor do programa)
+   * Baixe em: [python.org](https://www.python.org/)
+   * Muito Importante: Logo na primeira tela da instalação, marque a caixinha **"Add python.exe to PATH"** antes de avançar. Se esquecer disso, o computador não reconhecerá o Python.
+2. **WampServer** (O servidor do banco de dados)
+   * Baixe em: [wampserver.com/en/](https://www.wampserver.com/en/)
+   * Instale avançando as telas normalmente.
+3. **VS Code** (Onde você vai abrir o código, se preferir)
+   * Baixe em: [code.visualstudio.com](https://code.visualstudio.com/)
 
+---
+
+## 2. Configuração Inicial (Faça apenas na primeira vez)
+
+### Passo A: Ligar o Servidor e Criar o Banco 
+1. Abra o **WampServer** (procure no menu iniciar do Windows). 
+2. Olhe para o canto inferior direito da sua tela, perto do relógio do Windows. Um ícone do WampServer vai aparecer ali. Ele precisa ficar **Verde** (isso significa que o servidor ligou com sucesso).
+3. Clique com o **botão esquerdo** em cima desse ícone verde e selecione **phpMyAdmin**. Uma página de internet vai abrir.
+4. No campo de usuário, digite `root` e deixe a senha em branco (é o padrão). Clique em Continuar.
+5. No menu esquerdo da página que abriu, clique em **"Novo"** (ou *New*).
+6. No campo do meio, digite exatamente o nome: `estoque` (tudo em minúsculo) e clique em **"Criar"**. Pronto, a base de dados está criada.
+
+### Passo B: Preparar o ambiente (Escolha uma das duas formas abaixo)
+
+* **Opção 1: Se você prefere usar o TERMINAL comum do Windows**
+  1. Abra o menu iniciar do Windows, digite `cmd` e abra o **Prompt de Comando** (a tela preta) ou da pasta nos caminhos de pastas (C:\Usuários\Nome\Área de Trabalho) digitar 'cmd'
+  3. Cole o comando abaixo e aperte **Enter**:
+     ```cmd
+     python -m pip install mysql-connector-python
+     ```
+  4. Espere carregar e feche a tela preta.
+ Nota: ele instalará a biblioteca do mysql no seu computador
+
+* **Opção 2: Se você prefere usar o VS CODE**
+  1. Abra o VS Code, vá no menu do topo em **File** ➜ **Open Folder** e selecione a pasta do projeto (`sistema-controle-estoque-master`).
+  2. No menu esquerdo (ícone de 4 quadradinhos), busque por `Python` e clique no botão azul **Install**.
+  3. No menu do topo, clique em **Terminal** ➜ **New Terminal**. Na barra que abrir embaixo, cole o comando abaixo e aperte **Enter**:
+     ```bash
+     pip install mysql-connector-python
+     ```
+
+---
+
+## 3. Como Ligar o Programa no Dia a Dia
+
+> **Aviso fixo:** O programa só funciona se o **WampServer** estiver aberto e com o ícone **Verde** perto do relógio. Certifique-se disso antes de tentar ligar o sistema.
+
+Escolha por onde prefere rodar o programa hoje:
+
+### Pelo VS Code (Mais visual)
+1. Com a pasta do projeto aberta no VS Code, procure pela pasta **`app`** no menu esquerdo.
+2. Clique no arquivo **`main.py`** para abrir o código dele na tela.
+3. Olhe para o canto superior direito da tela e clique no botão de **"Play"** (um triângulo deitado).
+4. O menu vai aparecer na parte de baixo da tela. Digite o número da opção que quiser e use!
+
+### Pelo Terminal / Atalho rápido (Mais prático)
+Se não quiser abrir o VS Code toda vez, crie um "botão de ligar":
+1. Abra a pasta do projeto no seu computador.
+2. Clique com o botão direito em um espaço em branco, vá em **Novo** ➜ **Documento de Texto**.
+3. Abra esse bloco de notas e cole apenas esta linha:
+   ```text
+   python -m app.main
+
+##  Tutoriais em Vídeo de Referência
+
+Se você prefere ver o passo a passo em vídeo para ter certeza de que está fazendo certo, aqui estão duas ótimas referências:
+
+* **Como instalar e ligar o WampServer:** [Assista ao tutorial de instalação no YouTube](https://www.youtube.com/watch?v=kYv_w76v8f0) (Canal: Bóson Treinamentos). Esse vídeo mostra o clique a clique da instalação e como o ícone fica verde perto do relógio.
+* **Como mexer no phpMyAdmin para criar o banco:** [Assista ao tutorial do phpMyAdmin no YouTube](https://www.youtube.com/watch?v=P3M8Vp82wZc) (Canal: Curso em Vídeo). Mostra exatamente como entrar na página de internet do Wamp e criar uma base de dados nova.
+* **Como instalar e configurar o VS Code:** [Assista ao guia do VS Code no YouTube](https://www.youtube.com/watch?v=DiXbJL3iWvs) (Canal: Curso em Vídeo). Este vídeo mostra como baixar, instalar e mudar o idioma do VS Code para português, deixando ele pronto para uso.
+* **Como usar o terminal e rodar comandos:** [Assista ao guia de Terminal para Iniciantes no YouTube](https://www.youtube.com/watch?v=333M7t7g9N4) (Canal: Rocketseat). Um guia excelente que tira o medo da "tela preta", mostrando como abrir o terminal e digitar comandos sem erro.
+
+  
 ## Nome do aluno
 
 -
