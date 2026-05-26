@@ -130,7 +130,7 @@ Se você prefere ver o passo a passo em vídeo para ter certeza de que está faz
   
 ## Nome do aluno
 
--
--
--
+-  Arthur da Silva 
+-  Tiago da Silva
+-  Vinícius Alves 
 ---
