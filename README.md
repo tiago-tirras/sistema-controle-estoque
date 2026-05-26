@@ -120,7 +120,7 @@ Se não quiser abrir o VS Code toda vez, crie um "botão de ligar":
 
 ##  Tutoriais em Vídeo de Referência
 
-Se você prefere ver o passo a passo em vídeo para ter certeza de que está fazendo certo, aqui estão duas ótimas referências:
+Se você prefere ver o passo a passo em vídeo para ter certeza de que está fazendo certo, aqui estão quatro ótimas referências:
 
 * **Como instalar e ligar o WampServer:** [Assista ao tutorial de instalação no YouTube](https://www.youtube.com/watch?v=kYv_w76v8f0) (Canal: Bóson Treinamentos). Esse vídeo mostra o clique a clique da instalação e como o ícone fica verde perto do relógio.
 * **Como mexer no phpMyAdmin para criar o banco:** [Assista ao tutorial do phpMyAdmin no YouTube](https://www.youtube.com/watch?v=P3M8Vp82wZc) (Canal: Curso em Vídeo). Mostra exatamente como entrar na página de internet do Wamp e criar uma base de dados nova.
